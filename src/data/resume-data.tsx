@@ -17,7 +17,7 @@ export const RESUME_DATA = {
     social: [
       {
         name: "GitHub",
-        url: "https://github.com/EHTISHAM-Afzal",
+        url: "https://github.com/ehtisham-afzal",
         icon: GitHubIcon,
       },
       {
