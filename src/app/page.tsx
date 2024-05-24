@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="container relative p-4 mx-auto overflow-auto scroll-my-12 print:p-12 md:p-16">
+    <main className="container relative p-4 mx-auto overflow-auto scroll-my-12 md:p-16 print:p-12">
       <section className="w-full max-w-2xl mx-auto space-y-8 bg-white print:space-y-6">
         <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1.5">
@@ -88,7 +88,11 @@ export default function Page() {
           </div>
 
           <Avatar className="h-32 bg-gray-600 border w-28">
-            <AvatarImage className="object-cover" alt={RESUME_DATA.name} src={RESUME_DATA.avatarUrl} />
+            <AvatarImage
+              className="object-cover"
+              alt={RESUME_DATA.name}
+              src={RESUME_DATA.avatarUrl}
+            />
             <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback>
           </Avatar>
         </div>
@@ -110,20 +114,22 @@ export default function Page() {
                         {work.company}
                       </a>
 
-                      <span className="inline-flex gap-x-1">
-                        {work.badges.map((badge) => (
-                          <Badge
-                            variant="secondary"
-                            className="text-xs align-middle"
-                            key={badge}
-                          >
-                            {badge}
-                          </Badge>
-                        ))}
-                      </span>
+                      {/* <span className="inline-flex gap-x-1">
+                        {work?.badges &&
+                          work.badges.map((badge) => (
+                            <Badge
+                              variant="secondary"
+                              className="text-xs align-middle"
+                              key={badge}
+                            >
+                              {badge}
+                            </Badge>
+                          ))}
+                      </span> */}
                     </h3>
                     <div className="text-sm text-gray-500 tabular-nums">
-                      {work.start} - {work.end}
+                      {/* {work.start} - {work.end} */}
+                      {work.date}
                     </div>
                   </div>
 
@@ -132,7 +138,7 @@ export default function Page() {
                   </h4>
                 </CardHeader>
                 <CardContent className="mt-2 text-xs">
-                  {work.description}
+                  <div dangerouslySetInnerHTML={{__html :work.description }}/>
                 </CardContent>
               </Card>
             );
@@ -149,7 +155,8 @@ export default function Page() {
                       {education.school}
                     </h3>
                     <div className="text-sm text-gray-500 tabular-nums">
-                      {education.start} - {education.end}
+                      {education.date}
+                      {/* {education.start} - {education.end} */}
                     </div>
                   </div>
                 </CardHeader>
@@ -169,7 +176,7 @@ export default function Page() {
 
         <Section className="print-force-new-page scroll-mb-16">
           <h2 className="text-xl font-bold">Projects</h2>
-          <div className="grid grid-cols-1 gap-3 -mx-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-3 -mx-3 print:gap-2">
             {RESUME_DATA.projects.map((project) => {
               return (
                 <ProjectCard

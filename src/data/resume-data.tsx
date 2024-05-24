@@ -1,4 +1,57 @@
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
+import RxResumeExport from "./RxResumeExport.json"; // Importing the JSON file;
+
+const Education = RxResumeExport.sections.education.items.map((edu) => {
+  return {
+    school: edu.institution,
+    degree: edu.studyType,
+    date: edu.date,
+  };
+});
+
+
+const Work = RxResumeExport.sections.experience.items.map((work) => {
+  return {
+    company: work.company,
+    link : work.url.href,
+    title: work.position,
+    date: work.date,
+    description: work.summary,
+  };
+});
+
+const Skills = RxResumeExport.sections.skills.items.map((skill) => {
+  return skill.name;
+});
+
+
+// {
+//   title: "LittleLemon",
+//   techStack: [
+//     "Side Project",
+//     "E Commerce",
+//   ],
+//   description: "A MERN Stack E Commerce Web Application",
+//   logo: "/logo/Pepsico.svg",
+//   link: {
+//     label: "Little Lemon",
+//     href: "https://littlelemon-sham.vercel.app/",
+//   },
+// },
+
+
+
+const Projects = RxResumeExport.sections.projects.items.map((project) => {
+  return {
+    title: project.name,
+    techStack: project.keywords,
+    description: project.summary,
+    link: {
+      label: project.name,
+      href: project.url.href,
+    },
+  };
+});
 
 export const RESUME_DATA = {
   name: "Ehtisham Afzal",
@@ -32,66 +85,51 @@ export const RESUME_DATA = {
       },
     ],
   },
-  education: [
-    {
-      school: "GPI Batkhela",
-      degree: "DAE Civil Engneering",
-      start: "2018",
-      end: "2021",
-    },
-  ],
-  work: [
-    {
-      company: "Pepsico",
-      link: "https://www.pepsico.com.pk/",
-      badges: ["OnSite"],
-      title: "KPO",
-      logo: "/Pepsico.svg",
-      start: "2021",
-      end: "2023",
-      description: "Worked as KPO",
-    },
-  ],
-  skills: [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "TypeScript",
-    "PostgreSQL",
-    "Node.js",
-    "Web Technologies",
-    "React",
-    "Next.js",
-    "Astro",
-    "UI",
-    "UX",
-    "TailwindCSS",
-    "MongoDB",
-    "ExpressJS",
-    "SSR",
-    "Cloadinary",
-    "Git",
-    "Github",
-    "Figma",
-  ],
-  projects: [
-    {
-      title: "LittleLemon",
-      techStack: [
-        "Side Project",
-        "E Commerce",
-        "JavaScript",
-        "React",
-        "vite.js",
-        "MongoDB",
-        "Express",
-      ],
-      description: "A MERN Stack E Commerce Web Application",
-      logo: "/logo/Pepsico.svg",
-      link: {
-        label: "Little Lemon",
-        href: "https://littlelemon-sham.vercel.app/",
-      },
-    },
-  ],
+  education: Education,
+  //  [
+  //   {
+  //     school: "GPI Batkhela",
+  //     degree: "DAE Civil Engneering",
+  //     start: "2018",
+  //     end: "2021",
+  //   },
+  // ],
+  work: Work,
+  //  [
+  //   {
+  //     company: "Pepsico",
+  //     link: "https://www.pepsico.com.pk/",
+  //     badges: ["OnSite"],
+  //     title: "KPO",
+  //     logo: "/Pepsico.svg",
+  //     start: "2021",
+  //     end: "2023",
+  //     description: "Worked as KPO",
+  //   },
+  //   ...Work,
+  // ],
+  skills: Skills,
+  // ["HTML","CSS","JavaScript","TypeScript","PostgreSQL","Node.js","Web Technologies","React","Next.js","Astro","UI","UX","TailwindCSS","MongoDB","ExpressJS","SSR","Cloadinary","Git","Github","Figma",],
+  projects: Projects,
+  // [
+  //   {
+  //     title: "LittleLemon",
+  //     techStack: [
+  //       "Side Project",
+  //       "E Commerce",
+  //       "JavaScript",
+  //       "React",
+  //       "vite.js",
+  //       "MongoDB",
+  //       "Express",
+  //     ],
+  //     description: "A MERN Stack E Commerce Web Application",
+  //     logo: "/logo/Pepsico.svg",
+  //     link: {
+  //       label: "Little Lemon",
+  //       href: "https://littlelemon-sham.vercel.app/",
+  //     },
+  //   },
+  //   ...Projects,
+  // ],
 } as const;

@@ -16,7 +16,7 @@ interface Props {
 
 export function ProjectCard({ title, description, tags, link }: Props) {
   return (
-    <Card className="flex flex-col p-3 overflow-hidden border">
+    <Card className="flex flex-col p-3 overflow-hidden border min-w-60">
       <CardHeader className="">
         <div className="space-y-1">
           <CardTitle className="text-base">
@@ -36,9 +36,7 @@ export function ProjectCard({ title, description, tags, link }: Props) {
           <div className="hidden font-mono text-xs underline print:visible">
             {link?.replace("https://", "").replace("www.", "").replace("/", "")}
           </div>
-          <CardDescription className="font-mono text-xs">
-            {description}
-          </CardDescription>
+          <CardDescription className="font-mono text-xs" dangerouslySetInnerHTML={{__html :description }}/>
         </div>
       </CardHeader>
       <CardContent className="flex mt-auto">
