@@ -1,9 +1,9 @@
 {
   "basics": {
     "name": "Ehtisham Afzal",
-    "headline": "Junior Web Developer",
+    "headline": "Web Developer",
     "email": "khaj3172@gmail.com",
-    "phone": "+971 56 743 2452",
+    "phone": "+92 3459695962",
     "location": "KPK Pakistan",
     "url": {
       "label": "",
@@ -120,7 +120,7 @@
           "position": "software engineer",
           "location": "Pakistan",
           "date": "Oct 2023 - Present",
-          "summary": "<p>\"Kafalat e Yateem Foundation Malakand is an NGO for orphans. I designed and developed a <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://kafalatyateem.com/\">website</a> for them. Some key features of the website include internationalization available in two languages (English and Arabic), online donation functionality, an inbuilt content management system (CMS), dynamic data using PostgreSQL Neon DB with Drizzle ORM, and much more.\"<br><br>React, Node.js, Next.js, Tailwind CSS, SSR, Vercel, PostgreSQL, Figma </p>",
+          "summary": "<p>Kafalat e Yateem Foundation Malakand is an NGO for orphans. I designed and developed a <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://kafalatyateem.com/\">website</a> for them. Some key features of the website include <strong>online donation</strong> functionality, an inbuilt content management system with <strong>Sanity CMS</strong>, dynamic data using <strong>PostgreSQL</strong> <strong>Neon DB</strong> with <strong>Drizzle ORM</strong>, and much more.<br><br><strong>React, Node.js, Next.js, Tailwind CSS, SSR, Vercel, PostgreSQL, Figma  Sanity CMS</strong></p>",
           "url": {
             "label": "",
             "href": "https://kafalatyateem.com"
@@ -216,6 +216,46 @@
       "id": "projects",
       "items": [
         {
+          "id": "irqk2yekft4vwiziq1w0kl0d",
+          "visible": true,
+          "name": "SAAS landing page template",
+          "description": "A modern, customizable landing page template for SAAS products built with Next.js 14, React, and Framer Motion.",
+          "date": "Sep 2024",
+          "summary": "<p>Developed a customizable <strong>SAAS landing page template</strong> using <strong>Next.js 14</strong> for optimal performance, <strong>React 18</strong> for efficient UI, <strong>Framer Motion</strong> for smooth animations, <strong>TailwindCSS</strong> for responsive styling, <strong>Shadcn UI</strong> for customizable components, and<strong> TypeScript</strong> for type-safe development. Integrated dark mode with next-themes, ensured responsive design across devices, and <strong>optimized for SEO</strong>. Combining the latest web technologies, this template offers a robust foundation for SAAS product landing pages.</p>",
+          "keywords": [
+            "Nextjs",
+            "Framer-motion",
+            "ShadCN UI",
+            "Tailwind CSS"
+          ],
+          "url": {
+            "label": "",
+            "href": "https://sham-saas-landing-page.vercel.app"
+          }
+        },
+        {
+          "id": "sv2keqgb9vq3qr72id6d4761",
+          "visible": true,
+          "name": "ChatBot",
+          "description": "full stack ai powered chatbot ui ",
+          "date": "August 2024",
+          "summary": "<p>A full stack AI powered chatbot UI. The website features a wide range of AI tools and applications, simple and distributed infrastructure using <strong>MongoDB</strong>, efficient data management using <strong>Prisma ORM</strong>, optimal performance with <strong>Next.js</strong> deployed on <strong>Vercel</strong>, polished user experience using <strong>Radix UI</strong> components, and modern design elements using <strong>ShadCN UI</strong>.</p>",
+          "keywords": [
+            "MongoDB",
+            "Prisma",
+            "NextAuthJs",
+            "NextJs",
+            "TypeScript",
+            "vercel",
+            "figma",
+            "T3 stack"
+          ],
+          "url": {
+            "label": "",
+            "href": "https://chatbot-sham.vercel.app"
+          }
+        },
+        {
           "id": "k0dwh34n8kvxr1lxnuum3499",
           "visible": true,
           "name": "OyeAI",
@@ -236,7 +276,6 @@
             "href": "https://oyeai.site"
           }
         },
-
         {
           "id": "rgw5k71kzqkf6c8vqbtqa49c",
           "visible": true,
@@ -264,7 +303,7 @@
           "name": "KafalatYateem.com",
           "description": "website for kafalat e yateem foundation",
           "date": "Mar 14, 2024 - Present",
-          "summary": "<p>Kafalat e Yateem Foundation Malakand is an NGO for orphans. I designed and developed a <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://kafalatyateem.com/\">website</a> for them. Some key features of the website include <strong>internationalization</strong> available in two languages (English and Arabic), <strong>online donation</strong> functionality, an inbuilt content management system (<strong>CMS</strong>), dynamic data using <strong>PostgreSQL</strong> <strong>Neon DB</strong> with <strong>Drizzle ORM</strong>, and much more.<br><br></p>",
+          "summary": "<p>Kafalat e Yateem Foundation Malakand is an NGO for orphans. I designed and developed a <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://kafalatyateem.com/\">website</a> for them. Some key features of the website include <strong>online donation</strong> functionality, an inbuilt content management system with <strong>Sanity CMS</strong>, dynamic data using <strong>PostgreSQL</strong> <strong>Neon DB</strong> with <strong>Drizzle ORM</strong>, and much more.<br><br></p>",
           "keywords": [
             "React",
             "Node.js",
@@ -273,7 +312,8 @@
             "SSR",
             "Vercel",
             "PostgreSQL",
-            "Figma"
+            "Figma",
+            "Sanity CMS"
           ],
           "url": {
             "label": "",
@@ -335,7 +375,10 @@
           "description": "Build on top of MS Excell",
           "date": "2021",
           "summary": "<p>I developed this software while working at my previous company, PepsiCo. The software is built on top of MS Excel capabilities, allowing for the generation of 40 invoices at a time and the creation of summary automations using macros. It also includes two variants of invoice templates and inventory management features.<br></p>",
-          "keywords": ["MS Excell", "Macros"],
+          "keywords": [
+            "MS Excell",
+            "Macros"
+          ],
           "url": {
             "label": "See it live",
             "href": "https://1drv.ms/x/s!AgRxlmz3ST8HkDuJaeJWpNsufvoi?e=NJO2vK"
@@ -420,17 +463,17 @@
           "keywords": []
         },
         {
-          "id": "wwsg6aa9leomj6jphv32bdql",
+          "id": "bsziciaqdbaa2jyc9a3hm3et",
           "visible": true,
-          "name": "Drizzle",
+          "name": "Neon DB",
           "description": "",
           "level": 0,
           "keywords": []
         },
         {
-          "id": "bsziciaqdbaa2jyc9a3hm3et",
+          "id": "wwsg6aa9leomj6jphv32bdql",
           "visible": true,
-          "name": "Neon DB",
+          "name": "Drizzle",
           "description": "",
           "level": 0,
           "keywords": []
@@ -575,6 +618,22 @@
           "id": "qa293n3uf5cvgc5eacamskwj",
           "visible": true,
           "name": "Vs code",
+          "description": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "k55p0ajqb0c2v31fy73i51y6",
+          "visible": true,
+          "name": "Sanity CMS",
+          "description": "",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "bro075ybf1d81ahrnexdbo2s",
+          "visible": true,
+          "name": "Payload CMS",
           "description": "",
           "level": 0,
           "keywords": []
@@ -737,7 +796,7 @@
     }
   },
   "metadata": {
-    "template": "pikachu",
+    "template": "onyx",
     "layout": [
       [
         [
@@ -757,8 +816,20 @@
           "publications"
         ]
       ],
-      [["projects"], ["languages"]],
-      [["custom.cnwv5bsb0smiskpsnd9pne7y"], []]
+      [
+        [
+          "projects"
+        ],
+        [
+          "languages"
+        ]
+      ],
+      [
+        [
+          "custom.cnwv5bsb0smiskpsnd9pne7y"
+        ],
+        []
+      ]
     ],
     "css": {
       "value": ".section {\n\toutline: 1px solid #000;\n\toutline-offset: 4px;\n}",
@@ -781,7 +852,9 @@
       "font": {
         "family": "IBM Plex Sans",
         "subset": "latin",
-        "variants": ["regular"],
+        "variants": [
+          "regular"
+        ],
         "size": 15
       },
       "lineHeight": 1.5,
