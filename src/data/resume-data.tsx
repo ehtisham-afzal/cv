@@ -62,7 +62,7 @@ export const RESUME_DATA = {
     "Junior full stack Web Developer, focused on building products that are user-friendly, simple and delightful.",
   summary:
     "A front-end developer, based in Pakistan. specializing in full-stack web applications using JavaScript, TypeScript, React, Next.js, and Node.js. I love building Web-Applications that are user-friendly, simple and delightful.",
-  avatarUrl: "/sham2cropped.png",
+  avatarUrl: "/SHAM-PIC-small.webp",
   personalWebsiteUrl: "https://ehtisham.dev",
   contact: {
     email: "shaminterprise@gmail.com",
