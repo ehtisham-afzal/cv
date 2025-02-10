@@ -1,9 +1,56 @@
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 import { cache } from "react";
 
-export const getResumeData = cache(async () => {
+// Define interfaces for the resume data structure
+interface Education {
+  institution: string;
+  studyType: string;
+  date: string;
+}
+
+interface Work {
+  company: string;
+  url: { href: string };
+  position: string;
+  date: string;
+  summary: string;
+}
+
+interface skills {
+  name: string;
+  keywords: string;
+  summary: string;
+  url: { href: string };
+}
+
+interface Projects {
+  name: string;
+  keywords: string[];
+  summary: string;
+  url: { href: string };
+}
+
+interface ResumeData {
+  sections: {
+    education: {
+      items: Education[];
+    };
+    experience: {
+      items: Work[];
+    };
+    skills: {
+      items: skills[];
+    };
+    projects: {
+      items: Projects[];
+    };
+  };
+}
+
+// Updated fetch implementation with proper typing
+export const getResumeData = cache(async (): Promise<ResumeData> => {
   const res = await fetch("https://ehtisham.vercel.app/RxResumeExport.json", {
-    next: { revalidate: 86400 }, // Revalidate every day (24 hours * 3600 seconds)
+    next: { revalidate: 86400 }, // Revalidate every day
   });
 
   if (!res.ok) {
@@ -13,40 +60,26 @@ export const getResumeData = cache(async () => {
   return res.json();
 });
 
-const RxResumeExport = await getResumeData();
-const Education = RxResumeExport.sections.education.items.map(
-  (edu: { institution: string; studyType: string; date: string }) => {
-    return {
-      school: edu.institution,
-      degree: edu.studyType,
-      date: edu.date,
-    };
-  },
-);
+// Use type assertion or declare variable type
+const RxResumeExport: ResumeData = await getResumeData();
 
-const Work = RxResumeExport.sections.experience.items.map(
-  (work: {
-    company: string;
-    url: { href: string };
-    position: string;
-    date: string;
-    summary: string;
-  }) => {
-    return {
-      company: work.company,
-      link: work.url.href,
-      title: work.position,
-      date: work.date,
-      description: work.summary,
-    };
-  },
-);
+const Education = RxResumeExport.sections.education.items.map((edu) => ({
+  school: edu.institution,
+  degree: edu.studyType,
+  date: edu.date,
+}));
 
-const Skills = RxResumeExport.sections.skills.items.map(
-  (skill: { name: string }) => {
-    return skill.name;
-  },
-);
+const Work = RxResumeExport.sections.experience.items.map((work) => ({
+  company: work.company,
+  link: work.url.href,
+  title: work.position,
+  date: work.date,
+  description: work.summary,
+}));
+
+const Skills = RxResumeExport.sections.skills.items.map((skill) => {
+  return skill.name;
+});
 
 // {
 //   title: "LittleLemon",
@@ -62,24 +95,17 @@ const Skills = RxResumeExport.sections.skills.items.map(
 //   },
 // },
 
-const Projects = RxResumeExport.sections.projects.items.map(
-  (project: {
-    name: string;
-    keywords: string;
-    summary: string;
-    url: { href: string };
-  }) => {
-    return {
-      title: project.name,
-      techStack: project.keywords,
-      description: project.summary,
-      link: {
-        label: project.name,
-        href: project.url.href,
-      },
-    };
-  },
-);
+const Projects = RxResumeExport.sections.projects.items.map((project) => {
+  return {
+    title: project.name,
+    techStack: project.keywords,
+    description: project.summary,
+    link: {
+      label: project.name,
+      href: project.url.href,
+    },
+  };
+});
 
 export const RESUME_DATA = {
   name: "Ehtisham Afzal",
@@ -161,3 +187,5 @@ export const RESUME_DATA = {
   //   ...Projects,
   // ],
 } as const;
+
+export { Education, Work };

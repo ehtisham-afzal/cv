@@ -16,15 +16,15 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="container relative p-4 mx-auto overflow-auto scroll-my-12 md:p-16 print:p-12">
-      <section className="w-full max-w-2xl mx-auto space-y-8 bg-white print:space-y-6">
+    <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 md:p-16 print:p-12">
+      <section className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-6">
         <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1.5">
             <h1 className="text-2xl font-bold">{RESUME_DATA.name}</h1>
-            <p className="max-w-md font-mono text-sm text-pretty text-muted-foreground">
+            <p className="max-w-md text-pretty font-mono text-sm text-muted-foreground">
               {RESUME_DATA.about}
             </p>
-            <p className="items-center max-w-md font-mono text-xs text-pretty text-muted-foreground">
+            <p className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
               <a
                 className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
                 href={RESUME_DATA.locationLink}
@@ -34,7 +34,7 @@ export default function Page() {
                 {RESUME_DATA.location}
               </a>
             </p>
-            <div className="flex pt-1 font-mono text-sm gap-x-1 text-muted-foreground print:hidden">
+            <div className="flex gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden">
               {RESUME_DATA.contact.email ? (
                 <Button
                   className="size-8"
@@ -73,7 +73,7 @@ export default function Page() {
                 </Button>
               ))}
             </div>
-            <div className="flex-col hidden font-mono text-sm gap-x-1 text-muted-foreground print:flex">
+            <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex">
               {RESUME_DATA.contact.email ? (
                 <a href={`mailto:${RESUME_DATA.contact.email}`}>
                   <span className="underline">{RESUME_DATA.contact.email}</span>
@@ -87,7 +87,7 @@ export default function Page() {
             </div>
           </div>
 
-          <Avatar className="h-32 bg-gray-600 border w-28">
+          <Avatar className="h-32 w-28 border bg-gray-600">
             <AvatarImage
               className="object-cover"
               alt={RESUME_DATA.name}
@@ -98,7 +98,7 @@ export default function Page() {
         </div>
         <Section>
           <h2 className="text-xl font-bold">About</h2>
-          <p className="font-mono text-sm text-pretty text-muted-foreground">
+          <p className="text-pretty font-mono text-sm text-muted-foreground">
             {RESUME_DATA.summary}
           </p>
         </Section>
@@ -108,8 +108,8 @@ export default function Page() {
             return (
               <Card key={work.company}>
                 <CardHeader>
-                  <div className="flex items-center justify-between text-base gap-x-2">
-                    <h3 className="inline-flex items-center justify-center font-semibold leading-none gap-x-1">
+                  <div className="flex items-center justify-between gap-x-2 text-base">
+                    <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
                       <a className="hover:underline" href={work.link}>
                         {work.company}
                       </a>
@@ -127,7 +127,7 @@ export default function Page() {
                           ))}
                       </span> */}
                     </h3>
-                    <div className="text-sm text-gray-500 tabular-nums">
+                    <div className="text-sm tabular-nums text-gray-500">
                       {/* {work.start} - {work.end} */}
                       {work.date}
                     </div>
@@ -138,7 +138,7 @@ export default function Page() {
                   </h4>
                 </CardHeader>
                 <CardContent className="mt-2 text-xs">
-                  <div dangerouslySetInnerHTML={{__html :work.description }}/>
+                  <div dangerouslySetInnerHTML={{ __html: work.description }} />
                 </CardContent>
               </Card>
             );
@@ -150,11 +150,11 @@ export default function Page() {
             return (
               <Card key={education.school}>
                 <CardHeader>
-                  <div className="flex items-center justify-between text-base gap-x-2">
+                  <div className="flex items-center justify-between gap-x-2 text-base">
                     <h3 className="font-semibold leading-none">
                       {education.school}
                     </h3>
-                    <div className="text-sm text-gray-500 tabular-nums">
+                    <div className="text-sm tabular-nums text-gray-500">
                       {education.date}
                       {/* {education.start} - {education.end} */}
                     </div>
@@ -176,7 +176,7 @@ export default function Page() {
 
         <Section className="print-force-new-page scroll-mb-16">
           <h2 className="text-xl font-bold">Projects</h2>
-          <div className="grid gap-3 -mx-3 print:gap-2">
+          <div className="-mx-3 grid gap-3 print:gap-2">
             {RESUME_DATA.projects.map((project) => {
               return (
                 <ProjectCard
