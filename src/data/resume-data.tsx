@@ -1,29 +1,52 @@
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
-import RxResumeExport from "./RxResumeExport.json"; // Importing the JSON file;
+import { cache } from "react";
 
-const Education = RxResumeExport.sections.education.items.map((edu) => {
-  return {
-    school: edu.institution,
-    degree: edu.studyType,
-    date: edu.date,
-  };
+export const getResumeData = cache(async () => {
+  const res = await fetch("https://ehtisham.vercel.app/RxResumeExport.json", {
+    next: { revalidate: 86400 }, // Revalidate every day (24 hours * 3600 seconds)
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch resume data");
+  }
+
+  return res.json();
 });
 
+const RxResumeExport = await getResumeData();
+const Education = RxResumeExport.sections.education.items.map(
+  (edu: { institution: string; studyType: string; date: string }) => {
+    return {
+      school: edu.institution,
+      degree: edu.studyType,
+      date: edu.date,
+    };
+  },
+);
 
-const Work = RxResumeExport.sections.experience.items.map((work) => {
-  return {
-    company: work.company,
-    link : work.url.href,
-    title: work.position,
-    date: work.date,
-    description: work.summary,
-  };
-});
+const Work = RxResumeExport.sections.experience.items.map(
+  (work: {
+    company: string;
+    url: { href: string };
+    position: string;
+    date: string;
+    summary: string;
+  }) => {
+    return {
+      company: work.company,
+      link: work.url.href,
+      title: work.position,
+      date: work.date,
+      description: work.summary,
+    };
+  },
+);
 
-const Skills = RxResumeExport.sections.skills.items.map((skill) => {
-  return skill.name;
-});
-
+const Skills = RxResumeExport.sections.skills.items.map(
+  (skill: { name: string }) => {
+    return skill.name;
+  },
+);
 
 // {
 //   title: "LittleLemon",
@@ -39,19 +62,24 @@ const Skills = RxResumeExport.sections.skills.items.map((skill) => {
 //   },
 // },
 
-
-
-const Projects = RxResumeExport.sections.projects.items.map((project) => {
-  return {
-    title: project.name,
-    techStack: project.keywords,
-    description: project.summary,
-    link: {
-      label: project.name,
-      href: project.url.href,
-    },
-  };
-});
+const Projects = RxResumeExport.sections.projects.items.map(
+  (project: {
+    name: string;
+    keywords: string;
+    summary: string;
+    url: { href: string };
+  }) => {
+    return {
+      title: project.name,
+      techStack: project.keywords,
+      description: project.summary,
+      link: {
+        label: project.name,
+        href: project.url.href,
+      },
+    };
+  },
+);
 
 export const RESUME_DATA = {
   name: "Ehtisham Afzal",
@@ -63,7 +91,7 @@ export const RESUME_DATA = {
   summary:
     "A front-end developer, based in Pakistan. specializing in full-stack web applications using JavaScript, TypeScript, React, Next.js, and Node.js. I love building Web-Applications that are user-friendly, simple and delightful.",
   avatarUrl: "/SHAM-PIC-small.webp",
-  personalWebsiteUrl: "https://ehtisham.dev",
+  personalWebsiteUrl: "https://ehtisham.vercel.app",
   contact: {
     email: "shaminterprise@gmail.com",
     tel: "+923459695962",
